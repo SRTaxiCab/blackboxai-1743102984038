@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .video-card {
+            transition: transform 0.2s ease-in-out;
+        }
+        .video-card:hover {
+            transform: scale(1.02);
+        }
+        .video-card img.thumbnail {
+            transition: border-radius 0.2s ease;
+        }
+        .video-card:hover img.thumbnail {
+            border-radius: 0;
+        }
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+        .sidebar-link:hover {
+            background-color: #f0f0f0;
+            padding-left: 28px;
+        }
+        .search-input:focus {
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-[#f9f9f9]">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white flex items-center justify-between px-4 h-14 z-50">
+        <div class="flex items-center">
+            <button class="p-2 hover:bg-gray-100 rounded-full">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            <a href="/" class="ml-4 flex items-center">
+                <i class="fab fa-youtube text-red-600 text-3xl"></i>
+                <span class="ml-1 text-xl font-semibold">YouTube</span>
+            </a>
+        </div>
+        
+        <div class="flex-1 max-w-2xl mx-8">
+            <div class="flex">
+                <div class="flex-1 flex items-center">
+                <input type="text" placeholder="Search" class="w-full px-4 py-2 border border-gray-300 rounded-l-full focus:outline-none focus:border-blue-500 search-input">
+                </div>
+                <button class="px-6 py-2 bg-gray-100 border border-l-0 border-gray-300 rounded-r-full hover:bg-gray-200">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="ml-4 p-2 hover:bg-gray-100 rounded-full">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="flex items-center">
+            <button class="p-2 hover:bg-gray-100 rounded-full">
+                <i class="fas fa-video"></i>
+            </button>
+            <button class="p-2 hover:bg-gray-100 rounded-full">
+                <i class="fas fa-bell"></i>
+            </button>
+            <button class="ml-2 px-6 py-2 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-50">
+                <i class="fas fa-user-circle mr-2"></i>
+                Sign in
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-14 bottom-0 w-64 bg-white overflow-y-auto">
+        <nav class="py-3">
+            <a href="#" class="flex items-center px-6 py-2 hover:bg-gray-100 sidebar-link">
+                <i class="fas fa-home text-xl w-6"></i>
+                <span class="ml-6">Home</span>
+            </a>
+            <a href="#" class="flex items-center px-6 py-2 hover:bg-gray-100 sidebar-link">
+                <i class="fas fa-fire text-xl w-6"></i>
+                <span class="ml-6">Trending</span>
+            </a>
+            <a href="#" class="flex items-center px-6 py-2 hover:bg-gray-100 sidebar-link">
+                <i class="fas fa-play-circle text-xl w-6"></i>
+                <span class="ml-6">Subscriptions</span>
+            </a>
+            <hr class="my-3">
+            <a href="#" class="flex items-center px-6 py-2 hover:bg-gray-100 sidebar-link">
+                <i class="fas fa-folder text-xl w-6"></i>
+                <span class="ml-6">Library</span>
+            </a>
+            <a href="#" class="flex items-center px-6 py-2 hover:bg-gray-100 sidebar-link">
+                <i class="fas fa-history text-xl w-6"></i>
+                <span class="ml-6">History</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 mt-14 p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <!-- Video Cards -->
+            <div class="video-card">
+                <div class="relative">
+                    <img src="https://picsum.photos/seed/1/320/180" alt="Video thumbnail" class="w-full rounded-xl thumbnail">
+                    <span class="absolute bottom-1 right-1 bg-black text-white text-xs px-2 py-1 rounded">10:30</span>
+                </div>
+                <div class="flex mt-3">
+                    <img src="https://picsum.photos/seed/avatar1/36/36" alt="Channel avatar" class="w-9 h-9 rounded-full">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Amazing Video Title Here</h3>
+                        <p class="text-sm text-gray-600 mt-1">Channel Name</p>
+                        <p class="text-sm text-gray-600">1.2M views • 3 days ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="relative">
+                    <img src="https://picsum.photos/seed/2/320/180" alt="Video thumbnail" class="w-full rounded-xl thumbnail">
+                    <span class="absolute bottom-1 right-1 bg-black text-white text-xs px-2 py-1 rounded">15:45</span>
+                </div>
+                <div class="flex mt-3">
+                    <img src="https://picsum.photos/seed/avatar2/36/36" alt="Channel avatar" class="w-9 h-9 rounded-full">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Top 10 Programming Tips</h3>
+                        <p class="text-sm text-gray-600 mt-1">Tech Channel</p>
+                        <p class="text-sm text-gray-600">850K views • 1 week ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="relative">
+                    <img src="https://picsum.photos/seed/3/320/180" alt="Video thumbnail" class="w-full rounded-xl thumbnail">
+                    <span class="absolute bottom-1 right-1 bg-black text-white text-xs px-2 py-1 rounded">8:20</span>
+                </div>
+                <div class="flex mt-3">
+                    <img src="https://picsum.photos/seed/avatar3/36/36" alt="Channel avatar" class="w-9 h-9 rounded-full">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Travel Vlog: Paris Adventure</h3>
+                        <p class="text-sm text-gray-600 mt-1">Travel & Life</p>
+                        <p class="text-sm text-gray-600">2.5M views • 5 days ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="relative">
+                    <img src="https://picsum.photos/seed/4/320/180" alt="Video thumbnail" class="w-full rounded-xl thumbnail">
+                    <span class="absolute bottom-1 right-1 bg-black text-white text-xs px-2 py-1 rounded">12:15</span>
+                </div>
+                <div class="flex mt-3">
+                    <img src="https://picsum.photos/seed/avatar4/36/36" alt="Channel avatar" class="w-9 h-9 rounded-full">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Cooking with Chef John</h3>
+                        <p class="text-sm text-gray-600 mt-1">Food & Recipes</p>
+                        <p class="text-sm text-gray-600">1.8M views • 2 days ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="relative">
+                    <img src="https://picsum.photos/seed/5/320/180" alt="Video thumbnail" class="w-full rounded-xl thumbnail">
+                    <span class="absolute bottom-1 right-1 bg-black text-white text-xs px-2 py-1 rounded">20:30</span>
+                </div>
+                <div class="flex mt-3">
+                    <img src="https://picsum.photos/seed/avatar5/36/36" alt="Channel avatar" class="w-9 h-9 rounded-full">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Music Production Tutorial</h3>
+                        <p class="text-sm text-gray-600 mt-1">Music Studio</p>
+                        <p class="text-sm text-gray-600">500K views • 4 days ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="relative">
+                    <img src="https://picsum.photos/seed/6/320/180" alt="Video thumbnail" class="w-full rounded-xl thumbnail">
+                    <span class="absolute bottom-1 right-1 bg-black text-white text-xs px-2 py-1 rounded">7:45</span>
+                </div>
+                <div class="flex mt-3">
+                    <img src="https://picsum.photos/seed/avatar6/36/36" alt="Channel avatar" class="w-9 h-9 rounded-full">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Daily Workout Routine</h3>
+                        <p class="text-sm text-gray-600 mt-1">Fitness Zone</p>
+                        <p class="text-sm text-gray-600">1.5M views • 1 week ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="relative">
+                    <img src="https://picsum.photos/seed/7/320/180" alt="Video thumbnail" class="w-full rounded-xl thumbnail">
+                    <span class="absolute bottom-1 right-1 bg-black text-white text-xs px-2 py-1 rounded">16:20</span>
+                </div>
+                <div class="flex mt-3">
+                    <img src="https://picsum.photos/seed/avatar7/36/36" alt="Channel avatar" class="w-9 h-9 rounded-full">
+                    <div class="ml-3">
+                        <h3 class="font-medium">Gaming Highlights 2023</h3>
+                        <p class="text-sm text-gray-600 mt-1">Gaming Pro</p>
+                        <p class="text-sm text-gray-600">2M views • 6 days ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="relative">
+                    <img src="https://picsum.photos/seed/8/320/180" alt="Video thumbnail" class="w-full rounded-xl thumbnail">
+                    <span class="absolute bottom-1 right-1 bg-black text-white text-xs px-2 py-1 rounded">11:10</span>
+                </div>
+                <div class="flex mt-3">
+                    <img src="https://picsum.photos/seed/avatar8/36/36" alt="Channel avatar" class="w-9 h-9 rounded-full">
+                    <div class="ml-3">
+                        <h3 class="font-medium">DIY Home Decoration</h3>
+                        <p class="text-sm text-gray-600 mt-1">Creative Living</p>
+                        <p class="text-sm text-gray-600">750K views • 3 days ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
